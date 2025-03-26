@@ -1,21 +1,27 @@
 "use client";
 
-const ProductCard = ({ id, title, description, image, price, rating }) => {
+import React from 'react'
+import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@coreui/react'
+
+const ProductCard = ({ id, title, description, image, price }) => {
+    // shorten description (max 100 char) and add "..."
+    const truncatedDescription = description.length > 100 ? description.substring(0, 100) + "..." : description;
+
     return (
-        <div key={id} className="border rounded-2xl shadow-lg p-4 bg-white flex flex-col w-80">
-            <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2">{title}</h3>
-                <p className="text-gray-600 mb-4">{description}</p>
-                <div className="flex justify-between items-center mt-auto">
-                    <span className="text-lg font-semibold text-green-600">${price}</span>
-                    <button className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-                        Nice
-                    </button>
-                </div>
+        <CCard key={id} className="shadow-lg rounded-2xl bg-white p-4 flex flex-col w-112">
+            <div className="w-full h-48 flex justify-center">
+                <CCardImage src={image} alt={title} className="rounded object-cover w-48 h-48"/>
             </div>
-        </div>
+            <CCardBody className="p-4 flex flex-col flex-grow">
+                <CCardTitle className="text-xl font-bold">{title}</CCardTitle>
+                <CCardText className="text-gray-600 flex-grow">{truncatedDescription}</CCardText>
+                <div className="flex justify-between items-center mt-12">
+                    <span className="text-lg font-semibold text-green-600">${price}</span>
+                    <CButton className="bg-gray-800 rounded px-4 px-2 text-white hover:bg-blue-600" href="#">Nice</CButton>
+                </div>
+            </CCardBody>
+        </CCard>
     );
 };
-
 
 export default ProductCard;
