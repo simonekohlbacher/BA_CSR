@@ -95,10 +95,10 @@ export default function Home() {
                         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="h-8 w-8 hover:opacity-80" />
                     </a>
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" className="h-8 w-8 hover:opacity-80" />
+                        <img src="https://commons.wikimedia.org/wiki/File:Github_logo_svg.svg" alt="GitHub" className="h-8 w-8 hover:opacity-80" />
                     </a>
                     <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2023.png" alt="LinkedIn" className="h-8 w-8 hover:opacity-80" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/LinkedIn_Logo_2013_%282%29.svg" alt="LinkedIn" className="h-8 w-8 hover:opacity-80" />
                     </a>
                 </div>
                 <div className="mt-8">
