@@ -1,18 +1,22 @@
-import { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard';
+"use client";
 
-const ProductList = () => {
-    const [products, setProducts] = useState([]); // Speichert alle Produkte
-    const [loading, setLoading] = useState(true); // Lädstatus
+import { useEffect, useState } from 'react';
+import ProductCard from './ProductCard';
+
+const ProductList = ({ selectedCategory }) => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true);
             try {
-                const response = await fetch('https://fakestoreapi.com/products');
+                const url = selectedCategory
+                    ? `https://fakestoreapi.com/products/category/${selectedCategory}`
+                    : 'https://fakestoreapi.com/products';
+                const response = await fetch(url);
                 const data = await response.json();
-
-                setProducts(data); // Setzt alle Produkte
+                setProducts(data);
             } catch (error) {
                 console.error('Error loading products:', error);
             }
@@ -20,17 +24,14 @@ const ProductList = () => {
         };
 
         fetchProducts();
-    }, []); // Läuft nur einmal, wenn die Komponente geladen wird
+    }, [selectedCategory]);
 
-    if (loading) {
-        return <p className="text-center text-xl">Loading...</p>;
-    }
+    if (loading) return <p>Loading...</p>;
 
     return (
         <div className="bg-gray-100 p-8">
-            <h2 className="text-3xl font-bold text-center mb-6">Products</h2>
-            <p className="text-xl text-center mb-12">Lorem ipsum</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-24">
+            <h3 className="text-xl font-bold text-center mb-6">{selectedCategory}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 md:grid-cols-4 gap-6 mb-24">
                 {products.map((product) => (
                     <ProductCard
                         key={product.id}
