@@ -1,10 +1,10 @@
 "use client";
+
 import ProductList from './components/ProductList';
 import Link from 'next/link';
 import Image from  'next/image';
 
 export default function Home() {
-
     return (
         <main>
             <div className="p-24 text-center">
@@ -24,7 +24,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="justify-self-end">
-                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
+                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority="priority" href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
                 </div>
             </div>
 
