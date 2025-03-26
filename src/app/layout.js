@@ -23,10 +23,10 @@ export default function RootLayout({ children }) {
       <html lang="en">
           <body>
               <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
-                <img src="/logo_inverted.png" alt="Logo" className="h-12" />
+                <img src="/logo_inverted.png" alt="Logo" className="h-12" href="/"/>
                 <div className="mr-12">
                   <Link href="/" className="mr-4">Home</Link>
-                  <Link href="/dashboard">Info</Link>
+                  <Link href="/">Info</Link>
                 </div>
               </nav>
             {children}

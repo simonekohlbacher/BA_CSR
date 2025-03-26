@@ -1,12 +1,32 @@
 "use client";
-
-import ProductList from './components/ProductList';
+import ProductTeaser from './components/ProductTeaser';
+import CategoryList from './components/CategoryList';
 import Link from 'next/link';
 import Image from  'next/image';
 import ImageSlider from './components/ImageSlider';
+import {useEffect, useState} from "react";
 
 export default function Home() {
-    return (
+        const [categories, setCategories] = useState([]);
+        const [loading, setLoading] = useState(true);
+
+        useEffect(() => {
+            const fetchCategories = async () => {
+                setLoading(true);
+                try {
+                    const response = await fetch("https://fakestoreapi.com/products/categories");
+                    const data = await response.json();
+                    setCategories(data);
+                } catch (error) {
+                    console.error("Error loading categories:", error);
+                }
+                setLoading(false);
+            };
+
+            fetchCategories();
+        }, []);
+
+        return (
         <main>
             <div className="p-24 text-center">
                 <h1 className="text-3xl font-bold">Willkommen zur CSR-App.</h1>
@@ -25,7 +45,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="justify-self-end">
-                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority="priority" href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
+                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch"  priority={false}cd test href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
                 </div>
             </div>
 
@@ -34,18 +54,18 @@ export default function Home() {
                 <p className="text-xl mt-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
             </div>
 
-            <ProductList selectedCategory="jewelery" />
-            <ProductList selectedCategory="electronics" />
+            <ImageSlider />
+
+            {/* Dynamisch alle Kategorien rendern */}
+            <CategoryList categories={categories}/>
+            {categories.map((category) => (
+                <ProductTeaser key={category} selectedCategory={category} />
+            ))}
 
             <div className="bg-gray-800 text-center text-white p-24">
                 <h2 className="text-2xl font-bold">Test</h2>
                 <p className="text-xl mt-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
             </div>
-
-            <ImageSlider />
-
-            <ProductList selectedCategory="men's clothing" />
-            <ProductList selectedCategory="women's clothing" />
 
             <div className="grid grid-cols-2 gap-4 mt-12">
                 <div className="m-24 py-12 text-left">
@@ -69,7 +89,6 @@ export default function Home() {
                     <a href="#" className="text-xl hover:text-gray-400">Terms of Service</a>
                     <a href="#" className="text-xl hover:text-gray-400">Contact</a>
                 </div>
-
 
                 <div className="flex space-x-6 mt-8">
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
