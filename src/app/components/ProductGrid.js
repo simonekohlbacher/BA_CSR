@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import Link from "next/link";
 
-const ProductGrid = ({ selectedCategory, showMoreButton = false, showBackButton = false }) => {
+const ProductGrid = ({ selectedCategory, showMoreButton, showBackButton}) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -43,8 +43,6 @@ const ProductGrid = ({ selectedCategory, showMoreButton = false, showBackButton 
                     />
                 ))}
             </div>
-
-            {/* Button-Container */}
             <div className="flex justify-center gap-4">
                 {/* "Zurück"-Button, falls showBackButton true ist */}
                 {showBackButton && (
@@ -54,8 +52,6 @@ const ProductGrid = ({ selectedCategory, showMoreButton = false, showBackButton 
                         </button>
                     </Link>
                 )}
-
-                {/* "Mehr Ansehen"-Button, falls showMoreButton true ist */}
                 {showMoreButton && (
                     <Link href={selectedCategory ? `/products/${selectedCategory}` : "/products"}>
                         <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-blue-600">

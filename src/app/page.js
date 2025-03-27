@@ -91,16 +91,11 @@ export default function Home() {
                 </div>
 
                 <div className="flex space-x-6 mt-8">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="h-8 w-8 hover:opacity-80" />
-                    </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                        <img src="https://commons.wikimedia.org/wiki/File:Github_logo_svg.svg" alt="GitHub" className="h-8 w-8 hover:opacity-80" />
-                    </a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/LinkedIn_Logo_2013_%282%29.svg" alt="LinkedIn" className="h-8 w-8 hover:opacity-80" />
-                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">INSTA</a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
                 </div>
+
                 <div className="mt-8">
                     <p className="text-sm">© 2025 Simone K. All rights reserved.</p>
                 </div>
