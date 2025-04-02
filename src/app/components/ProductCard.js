@@ -9,7 +9,7 @@ const ProductCard = ({ id, title, description, image, price }) => {
     const truncatedDescription = description.length > 100 ? description.substring(0, 100) + "..." : description;
     return (
 
-        <CCard key={id} className="shadow-lg rounded-2xl bg-white p-4 flex flex-col">
+        <CCard className="shadow-lg rounded-2xl bg-white p-4 flex flex-col">
             <div className="w-full h-48 flex justify-center">
                 <CCardImage src={image} alt={title} className="rounded object-cover w-48 h-48"/>
             </div>
