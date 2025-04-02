@@ -45,7 +45,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="justify-self-end">
-                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority={true} test href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
+                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority={true} href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
                 </div>
             </div>
 
