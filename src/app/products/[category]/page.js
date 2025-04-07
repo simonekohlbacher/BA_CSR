@@ -5,7 +5,7 @@ import ProductList from "../../components/ProductList";
 import { useParams } from "next/navigation";
 
 export default function ProductCategoryPage() {
-    const { category } = useParams();  // useParams statt getServerSideProps
+    const { category } = useParams();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
