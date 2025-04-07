@@ -1,15 +1,16 @@
 "use client";
-
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import ProductCard from "../../../components/ProductCard";
-import Link from "next/link";
 
 const ProductDetail = () => {
-    const { id } = useParams(); // Holt die Produkt-ID aus der URL
-    const [product, setProduct] = useState(null); // Zustand für Produktdaten
+    // get id of product from URL
+    const { id } = useParams();
+    // state to hold product data
+    const [product, setProduct] = useState(null);
 
-    // Daten von der API holen (hier ein Beispiel mit FakeStoreAPI)
+    // get product data from API, only if id is valid
     useEffect(() => {
         if (id) {
             fetch(`https://fakestoreapi.com/products/${id}`)

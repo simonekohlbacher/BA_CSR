@@ -1,22 +1,27 @@
 "use client";
+import Link from 'next/link';
+import Image from  'next/image';
 import ProductTeaser from './components/ProductTeaser';
 import CategoryList from './components/CategoryList';
 import EmployeeList from './components/EmployeeList';
-import Link from 'next/link';
-import Image from  'next/image';
 import ImageSlider from './components/ImageSlider';
 import {useEffect, useState} from "react";
 
 export default function Home() {
+        // state for saving categories, initially empty, only once after first render
         const [categories, setCategories] = useState([]);
+        // state for loading, if true dates are still loading
         const [loading, setLoading] = useState(true);
 
+        // use effects in a functional component, tells the app to fetch
         useEffect(() => {
+            // asnyc function to fetch categories
             const fetchCategories = async () => {
                 setLoading(true);
                 try {
                     const response = await fetch("https://fakestoreapi.com/products/categories");
                     const data = await response.json();
+                    // set categories to the fetched data
                     setCategories(data);
                 } catch (error) {
                     console.error("Error loading categories:", error);
@@ -47,7 +52,7 @@ export default function Home() {
                 </div>
                 <div className="justify-self-end">
                     <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority={true} width="700" height="700" />
-                    <p>Bild Quelle von: https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/</p>
+                    <p className="text-xs">Bild Quelle von: https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/</p>
                 </div>
             </div>
 
@@ -61,7 +66,7 @@ export default function Home() {
 
             <ImageSlider />
 
-            {/* Dynamisch alle Kategorien rendern */}
+            {/* Render all categories and products in categories */}
             <CategoryList categories={categories}/>
             {categories.map((category) => (
                 <ProductTeaser key={category} selectedCategory={category} />
@@ -83,7 +88,8 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="justify-self-end">
-                    <Image src="/coding.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority={false} href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
+                    <Image src="/coding1.jpg" alt="Laptop und Notizbuch auf Schreibtisch" priority={false} href="https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/" width="700" height="700" />
+                    <p className="text-xs">Bild Quelle von: https://www.pexels.com/de-de/foto/blauer-einziehbarer-stift-574070/</p>
                 </div>
             </div>
 

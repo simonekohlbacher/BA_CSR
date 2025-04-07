@@ -1,17 +1,20 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import Link from "next/link";
 
 const ProductGrid = ({ selectedCategory, showMoreButton, showBackButton}) => {
+    // state for saving products, initially empty, only once after first render
     const [products, setProducts] = useState([]);
+    // state for loading, initially true
     const [loading, setLoading] = useState(true);
 
+    // fetch products from API
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true);
             try {
+                // fetch products based on selected category, if none, fetch all products
                 const url = selectedCategory
                     ? `https://fakestoreapi.com/products/category/${selectedCategory}`
                     : "https://fakestoreapi.com/products";
@@ -23,7 +26,6 @@ const ProductGrid = ({ selectedCategory, showMoreButton, showBackButton}) => {
             }
             setLoading(false);
         };
-
         fetchProducts();
     }, [selectedCategory]);
 
@@ -45,7 +47,7 @@ const ProductGrid = ({ selectedCategory, showMoreButton, showBackButton}) => {
                 ))}
             </div>
             <div className="flex justify-center gap-4">
-                {/* "Zurück"-Button, falls showBackButton true ist */}
+                {/* if showBackButton is true, show it */}
                 {showBackButton && (
                     <Link href="/">
                         <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">
@@ -55,9 +57,7 @@ const ProductGrid = ({ selectedCategory, showMoreButton, showBackButton}) => {
                 )}
                 {showMoreButton && (
                     <Link href={selectedCategory ? `/products/${selectedCategory}` : "/products"}>
-                        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-blue-600">
-                            Mehr Ansehen
-                        </button>
+                        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-blue-600">Mehr Ansehen</button>
                     </Link>
                 )}
             </div>

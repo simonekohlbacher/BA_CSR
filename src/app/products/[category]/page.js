@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import ProductList from "../../components/ProductList";
 import { useParams } from "next/navigation";
@@ -9,7 +8,9 @@ export default function ProductCategoryPage() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Fetch products based on the selected category
     useEffect(() => {
+        // Check if category is valid
         const fetchProducts = async () => {
             if (!category) return;
             setLoading(true);
@@ -22,7 +23,6 @@ export default function ProductCategoryPage() {
             }
             setLoading(false);
         };
-
         fetchProducts();
     }, [category]);
 

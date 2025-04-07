@@ -1,15 +1,13 @@
 "use client";
-
 import React from 'react'
-import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@coreui/react'
 import Link from "next/link";
+import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@coreui/react'
 
-// Code from https://coreui.io/react/docs/components/card/
+// Code from https://coreui.io/react/docs/components/card/ bzw. coreui.io/react/docs/3.3/components/CCard
 const ProductCard = ({ id, title, description, image, price }) => {
     // shorten description (max 100 char) and add "..."
     const truncatedDescription = description.length > 100 ? description.substring(0, 100) + "..." : description;
     return (
-
         <CCard className="shadow-lg rounded-2xl bg-white p-4 flex flex-col">
             <div className="w-full h-48 flex justify-center">
                 <CCardImage src={image} alt={title} className="rounded object-cover w-48 h-48"/>
