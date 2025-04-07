@@ -69,7 +69,7 @@ export default function Home() {
 
             <div className="bg-gray-800 text-center text-white p-24">
                 <h2 className="text-2xl font-bold">Daten fetchen</h2>
-                <p className="text-xl mt-2">Um nun noch weitere Daten zu fetchen, holen wir uns 50 Mitarbeiter:innen von einer Open Source API rei (https://randomuser.me), die uns Fake Daten und Bilder übermittelt. Diese "Visitenkarten" werden nun vom Client zusammengebaut und dargestellt. </p>
+                <p className="text-xl mt-2">Um nun noch weitere Daten zu fetchen, holen wir uns 50 Mitarbeiter:innen von einer Open Source API rei (https://randomuser.me), die uns Fake Daten und Bilder übermittelt. Diese Visitenkarten werden nun vom Client zusammengebaut und dargestellt. </p>
             </div>
 
             {/* Employees */}
